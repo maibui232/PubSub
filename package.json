@@ -1,0 +1,12 @@
+{
+  "name": "maibui232.unity.pubsub",
+  "displayName": "PubSub",
+  "author": { "name": "MikeBui.", "url": "" },
+  "version": "1.0.1",
+  "unity": "2022.3",
+  "description": "Publisher Subscriber Pattern",
+  "keywords": [],
+  "license": "MIT",
+  "category": "DI",
+  "dependencies": {}
+}

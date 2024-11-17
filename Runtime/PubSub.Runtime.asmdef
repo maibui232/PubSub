@@ -1,0 +1,22 @@
+{
+  "name": "PubSub.Runtime",
+  "rootNamespace": "PubSub.Runtime",
+  "references": [
+    "ReflexDI.Runtime"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [
+    {
+      "name": "maibui232.unity.reflex.di",
+      "expression": "",
+      "define": "ENABLE_REFLEX_DI"
+    }
+  ],
+  "noEngineReferences": false
+}
