@@ -2,15 +2,16 @@ namespace PubSub.Runtime
 {
     using System;
 
-    public interface ISubscriber : IDisposable
+    public interface IMessenger : IDisposable
     {
     }
 
-    public interface ISubscriber<T> : ISubscriber
+    public interface IMessenger<T> : IMessenger
     {
         void Subscribe(Action<T>   callback);
         void Subscribe(Action      callback);
         void Unsubscribe(Action<T> callback);
         void Unsubscribe(Action    callback);
+        void Publish(T             value);
     }
 }

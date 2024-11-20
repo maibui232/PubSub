@@ -14,54 +14,54 @@ namespace PubSub.Runtime
 
     public class PubSubService : IPubSubService
     {
-        private readonly Dictionary<Type, ISubscriber> typeToSubscriber = new();
+        private readonly Dictionary<Type, IMessenger> typeToSubscriber = new();
 
 #region IPubSubService Implementation
 
         public void Subscribe<T>(Action<T> callback)
         {
-            this.GetSubscriber<T>().Subscribe(callback);
+            this.GetMessenger<T>().Subscribe(callback);
         }
 
         public void Subscribe<T>(Action callback)
         {
-            this.GetSubscriber<T>().Subscribe(callback);
+            this.GetMessenger<T>().Subscribe(callback);
         }
 
         public void Unsubscribe<T>(Action<T> callback)
         {
-            this.GetSubscriber<T>().Unsubscribe(callback);
+            this.GetMessenger<T>().Unsubscribe(callback);
         }
 
         public void Unsubscribe<T>(Action callback)
         {
-            this.GetSubscriber<T>().Unsubscribe(callback);
+            this.GetMessenger<T>().Unsubscribe(callback);
         }
 
         public void Publish<T>(T message)
         {
-            throw new NotImplementedException();
+            this.GetMessenger<T>().Publish(message);
         }
 
 #endregion
 
 #region Private
 
-        private ISubscriber<T> GetSubscriber<T>()
+        private IMessenger<T> GetMessenger<T>()
         {
-            var            type = typeof(T);
-            ISubscriber<T> subscriber;
+            var           type = typeof(T);
+            IMessenger<T> messenger;
             if (this.typeToSubscriber.TryGetValue(type, out var cacheSubscriber))
             {
-                subscriber = (ISubscriber<T>)cacheSubscriber;
+                messenger = (IMessenger<T>)cacheSubscriber;
             }
             else
             {
-                subscriber = new Message<T>();
-                this.typeToSubscriber.Add(type, subscriber);
+                messenger = new Message<T>();
+                this.typeToSubscriber.Add(type, messenger);
             }
 
-            return subscriber;
+            return messenger;
         }
 
 #endregion

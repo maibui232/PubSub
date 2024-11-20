@@ -3,7 +3,7 @@ namespace PubSub.Runtime
     using System;
     using System.Collections.Generic;
 
-    public class Message<T> : ISubscriber<T>
+    public class Message<T> : IMessenger<T>
     {
         private readonly HashSet<Delegate> subscriberCallback = new();
 
@@ -49,6 +49,14 @@ namespace PubSub.Runtime
         public void Unsubscribe(Action callback)
         {
             this.InternalSubscribe(callback);
+        }
+
+        public void Publish(T value)
+        {
+            foreach (var callback in this.subscriberCallback)
+            {
+                callback.DynamicInvoke(value);
+            }
         }
 
         public void Dispose()
