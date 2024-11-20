@@ -1,5 +1,4 @@
-// #if ENABLE_REFLEX_DI
-
+#if ENABLE_REFLEX_DI
 namespace PubSub.Runtime.PubSub.Runtime
 {
     using ReflexDI;
@@ -13,5 +12,4 @@ namespace PubSub.Runtime.PubSub.Runtime
         }
     }
 }
-
-// #endif
+#endif

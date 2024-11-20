@@ -8,5 +8,7 @@
   "keywords": [],
   "license": "MIT",
   "category": "DI",
-  "dependencies": {}
+  "dependencies": {
+    "maibui232.unity.reflex.di" : "1.0.1"
+  }
 }
