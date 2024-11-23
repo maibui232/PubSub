@@ -9,6 +9,6 @@
   "license": "MIT",
   "category": "DI",
   "dependencies": {
-    "maibui232.unity.reflex.di" : "1.0.1"
+    "maibui232.unity.reflex.di" : "1.0.2"
   }
 }
